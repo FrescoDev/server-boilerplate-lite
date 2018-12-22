@@ -1,0 +1,24 @@
+{
+  "name": "server-template",
+  "version": "1.0.0",
+  "description": "HTTP server template",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start:dev": "nodemon index.js",
+    "docker:dev": "docker-compose up dev",
+    "docker:test": "docker-compose up test",
+    "test": "ava"
+  },
+  "author": "niobi",
+  "license": "ISC",
+  "dependencies": {
+    "fastify": "^1.13.3",
+    "ramda": "^0.26.1"
+  },
+  "devDependencies": {
+    "ava": "^1.0.1",
+    "nodemon": "^1.18.9",
+    "supertest": "^3.3.0"
+  }
+}
