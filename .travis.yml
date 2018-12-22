@@ -6,6 +6,5 @@ env:
 jobs:
   include:
     - stage: test
-      install: 
-        -npm i
+      install: npm i
       script: npm run docker:test
