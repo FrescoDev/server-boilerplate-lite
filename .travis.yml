@@ -10,10 +10,3 @@ jobs:
     - stage: test
       install: npm i
       script: npm run docker:test
-    - stage: deploy
-      if: branch = master
-      provider: heroku
-      script: 
-        - docker login -u _ -p "$HEROKU_TOKEN" registry.heroku.com
-        - docker build -t registry.heroku.com/notes/web -f Dockerfile .
-        - docker push registry.heroku.com/notes/web docker login -u _ -p $HEROKU_TOKEN registry.heroku.com
