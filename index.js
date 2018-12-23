@@ -1,5 +1,5 @@
 const server = require("fastify")({
-  redact: ['req.headers.authorization'],
+  redact: ["req.headers.authorization"],
   logger: true
 });
 
@@ -13,6 +13,7 @@ server.listen(process.env.PORT || 3000, "0.0.0.0", (err, address) => {
     process.exit(1);
   }
 
+  server.log.info(server.printRoutes());
   server.log.info(`server listening on ${address}`);
 });
 
