@@ -4,21 +4,27 @@
   "description": "HTTP server template",
   "main": "index.js",
   "scripts": {
+    "build:ui": "preact build --src ui --dest public -p --clean",
     "start": "node index.js",
     "start:dev": "nodemon index.js",
+    "start:dev:ui": "preact watch --src ui --port 3000",
     "docker:dev": "docker-compose up dev",
+    "docker:dev:ui": "docker-compose up dev-ui",
     "docker:test": "docker-compose up test",
-    "test": "ava"
+    "test": "npm run build:ui && ava"
   },
   "author": "niobi",
   "license": "ISC",
   "dependencies": {
     "fastify": "^1.13.3",
+    "fastify-static": "^1.0.0",
+    "preact": "^8.2.6",
     "ramda": "^0.26.1"
   },
   "devDependencies": {
     "ava": "^1.0.1",
     "nodemon": "^1.18.9",
+    "preact-cli": "^2.1.0",
     "supertest": "^3.3.0"
   }
 }

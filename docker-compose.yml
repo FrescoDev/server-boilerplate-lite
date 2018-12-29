@@ -25,3 +25,16 @@ services:
       - "traefik.backend=dev"
       - "traefik.frontend.rule=PathPrefixStrip:/dev"
       - "traefik.port=80"
+
+  dev-ui:
+    extends:
+      service: node
+    ports:
+      - "3000:3000"
+    command: npm run start:dev:ui
+    environment:
+      - PORT=3000
+    labels:
+      - "traefik.backend=dev"
+      - "traefik.frontend.rule=PathPrefixStrip:/dev"
+      - "traefik.port=80"
