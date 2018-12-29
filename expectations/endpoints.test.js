@@ -13,9 +13,7 @@ test("When a client submits a GET request to the /state endpoint", async ({
   await ready();
   const response = await request(server).get("/state");
 
-  const expectedStatus = 200;
-
-  is(response.status, expectedStatus);
+  is(response.status, 200);
   is(response.body.isResponsive, true);
 
   close();
@@ -30,9 +28,7 @@ test("When a client submits a GET request to the /ui endpoint", async ({
   await ready();
   const response = await request(server).get("/ui");
 
-  const expectedStatus = 200;
-
-  is(response.status, expectedStatus);
+  is(response.status, 200);
   is(response.type, "text/html");
 
   const uitHtml = response.text;
